@@ -8,7 +8,7 @@ function App() {
   return (
     <div className='root-cnt'>
       <div className='cnt-title'>
-        <h1 className='ttle1'>Media</h1><h1 className='ttle2'>Mirror.</h1> 
+        <h1 className='ttle1'>MedIA</h1><h1 className='ttle2'>Mirror.</h1> 
       </div>
       <MainContainer/>
     </div>

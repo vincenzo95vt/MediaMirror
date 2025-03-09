@@ -1,12 +1,12 @@
 #root {
-  max-width: 1280px;
+  width: 100vw;
   margin: 0 auto;
   text-align: center;
 }
 .root-cnt{
   display: flex;
   flex-direction: column;
-  align-content: center;
+  width: 98vw;
 }
 
 .root-cnt .cnt-title{
@@ -16,6 +16,7 @@
   height: 11rem;
   padding: 0;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .root-cnt .cnt-title h1{

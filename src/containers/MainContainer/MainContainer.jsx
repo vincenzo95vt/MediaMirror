@@ -1,20 +1,63 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./MainContainer.css"
+import { getNewsReport } from '../../core/services/services.';
 
 const MainContainer = () => {
+    const [isLoading, setIslLoading] = useState(false);
+    const [url, setUrl] = useState(undefined)
+    const [content, setContent] = useState(undefined)
+
+    const handleFindLink = async () => {
+        try {
+            console.log(url)
+            setIslLoading(true);
+            const data = await getNewsReport(url);
+            setContent(data.content)
+        } catch (error) {
+            console.error(error.message)
+        } finally{
+            setIslLoading(false)
+        }
+        
+    };
+
   return (
     <div className='main-cnt'>
         <div className='url-cnt'>
             <span className='url'>URL: </span>
-            <input type="link" className='link'/>
-            <button type='submit' className='btn-find'>Investigar</button>
+            <input type="link" className='link' value={url} onChange={(e) => setUrl(e.target.value)}/>
+            <button type='submit' className='btn-find' onClick={handleFindLink}>Investigar</button>
         </div>
-        <div className="info-cnt">
-            <span className='title'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
-            <span className='news-summary'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam placeat maiores aperiam totam accusantium omnis, rerum consequatur maxime laudantium nihil molestiae eius voluptate exercitationem consectetur sapiente vitae quasi dolorem earum!</span>
-            <span className='news-report'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo similique unde nesciunt quisquam ex molestias natus neque ducimus? Sint odio consectetur delectus, vitae dolor magnam nesciunt corrupti molestiae. Vitae, eius!</span>
-            <span className='news-question'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, deserunt possimus? Veniam quam sequi?</span>
-        </div>
+        {
+            isLoading ? 
+            (
+                <div className='spinner-cnt'>
+                    <span className="loader"></span>
+                </div>
+            )
+            :
+            (
+                content ? 
+                (
+                    <div className="info-cnt">
+                        {
+                            Object.entries(content).map(([key, value]) => (
+                                <div className={`cnt-section}`} key={key}>
+                                    <p>{value}</p>
+                                </div>
+                            ))
+                        }
+                    </div>  
+                ) 
+                : 
+                (
+                    <div className="cnt-no-data">
+                        <h2>Haz tu primera busqueda!</h2>
+                    </div>
+                )                 
+            )
+        }
+        
     </div>
   )
 }
