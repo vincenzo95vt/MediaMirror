@@ -1,0 +1,48 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+.root-cnt{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.root-cnt .cnt-title{
+  display: flex;
+  justify-content: start;
+  width: 100%;
+  height: 11rem;
+  padding: 0;
+  align-items: center;
+}
+
+.root-cnt .cnt-title h1{
+  font-size: 10rem;
+}
+
+.root-cnt .cnt-title .ttle1{
+  font-weight: 600;
+  letter-spacing: -1.125rem;
+}
+
+.root-cnt .cnt-title .ttle2{
+  font-weight: 300;
+
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
