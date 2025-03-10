@@ -15,7 +15,8 @@ export const getNewsReport = async (url) => {
             body: JSON.stringify(requestUrl)
         })
         const data = await response.json()
-        return data
+        const dataParsed = JSON.parse(data.content)
+        return dataParsed
     } catch (error) {
         console.error(error.message)
     }

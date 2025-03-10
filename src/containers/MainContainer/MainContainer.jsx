@@ -9,10 +9,11 @@ const MainContainer = () => {
 
     const handleFindLink = async () => {
         try {
-            console.log(url)
+            
             setIslLoading(true);
             const data = await getNewsReport(url);
-            setContent(data.content)
+            console.log(data)
+            setContent(data)
         } catch (error) {
             console.error(error.message)
         } finally{
@@ -40,13 +41,11 @@ const MainContainer = () => {
                 content ? 
                 (
                     <div className="info-cnt">
-                        {
-                            Object.entries(content).map(([key, value]) => (
-                                <div className={`cnt-section}`} key={key}>
-                                    <p>{value}</p>
-                                </div>
-                            ))
-                        }
+                        <h2 className='title'>{content.titulo}</h2>
+                        <span className='news-summary'>{content.resumen}</span>
+                        <span className='news-report'>{content.explicacion}</span>
+                        <span className="news-bias">{content.sesgo}</span>
+                        <span className='news-question'>{content.pregunta}</span>
                     </div>  
                 ) 
                 : 
