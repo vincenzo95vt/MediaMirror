@@ -14,9 +14,13 @@ export const getNewsReport = async (url) => {
             headers: {"Content-type" : "application/json"},
             body: JSON.stringify(requestUrl)
         })
-        const data = await response.json()
-        const dataParsed = JSON.parse(data.content)
-        return dataParsed
+        if(response.status === 400){
+            const data = await response.json()
+            return data.error
+        }else if(response.status === 200){
+            const data = await response.json()
+            return data
+        }
     } catch (error) {
         console.error(error.message)
     }
