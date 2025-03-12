@@ -11,6 +11,7 @@
 
 .root-cnt .cnt-title{
   display: flex;
+  flex-direction: row;
   justify-content: start;
   width: 100%;
   height: 11rem;
@@ -45,5 +46,109 @@
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
+  }
+}
+/* 🌟 Estilos generales para móviles */
+@media screen and (max-width: 768px) {
+  .root-cnt {
+    width: 100vw;
+    padding: 1rem;
+    overflow-x: hidden;
+  }
+  .root-cnt .cnt-title h1 {
+    font-size: 4.5rem;
+  }
+  .root-cnt .cnt-title .ttle1{
+    letter-spacing: -0.6rem;
+  }
+  .main-cnt {
+    width: 100%;
+    display: inline-block;
+    height: auto;
+    margin: 1rem auto;
+    padding: 1rem;
+    box-shadow: none;
+    overflow: scroll;
+  }
+
+  .main-cnt .info-cnt{
+    width: 100%;
+  }
+  .main-cnt .info-cnt .title{
+    width: 100%;
+    font-size: 1.25rem !important;
+  }
+
+  .url-cnt {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .url {
+    font-size: 1.2rem;
+  }
+
+  .link {
+    width: 90%;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-bottom: 2px solid black;
+  }
+
+  .btn-find {
+    width: 80%;
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+
+  .main-cnt .info-cnt {
+    width: 100%;
+    text-align: left;
+    padding: 1rem;
+  }
+
+  .news-summary,
+  .news-report,
+  .news-bias,
+  .news-question{
+    font-size: 1rem;
+  }
+  .news-tendency-name,
+  .news-tendency-Derechas,
+  .news-tendency-Izquierdas,
+  .news-tendency-Neutral{
+    font-size: 0.8rem;
+  }
+}
+
+/* 📱 Estilos para teléfonos pequeños (menos de 480px) */
+@media screen and (max-width: 480px) {
+  .cnt-title h1 {
+    font-size: 2.5rem;
+    letter-spacing: -0.3rem;
+  }
+
+  .main-cnt {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  .url {
+    font-size: 1rem;
+  }
+
+  .link {
+    width: 95%;
+    font-size: 0.9rem;
+  }
+
+
+  .news-summary,
+  .news-report,
+  .news-opinion,
+  .news-question {
+    font-size: 0.9rem;
+    line-height: 1.4;
   }
 }
